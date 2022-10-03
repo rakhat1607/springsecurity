@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th = "http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <title>Security Sample</title>
+    <link rel="stylesheet" type="text/css" th:href="@{'/css/bootstrap.min.css'}">
+    <script type="text/javascript" th:src="@{'/js/bootstrap.bundle.js'}"></script>
+</head>
+<body>
+    <div>
+<h1>SIGN UP Page</h1>
+        <a th:href="@{'/'}" >HOME PAGE</a>
+    </div>
+<div>
+    <form th:action="@{'/signup'}" method="post">
+        EMAIL : <input type="email" name="email">
+        PASSWORD : <input type="password" name="password">
+        REPEAT PASSWORD : <input type="password" name="retypePassword">
+        FULL NAME : <input type="text" name="fullName">
+        <button>SIGN IN</button>
+    </form>
+</div>
+</body>
+</html>

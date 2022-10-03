@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th = "http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <title>Security Sample</title>
+    <link rel="stylesheet" type="text/css" th:href="@{'/css/bootstrap.min.css'}">
+    <script type="text/javascript" th:src="@{'/js/bootstrap.bundle.js'}"></script>
+</head>
+<body>
+    <div>
+<h1>Profile Page</h1>
+        <h2>DEAR <span th:text="${#authentication.getPrincipal().fullName}"></span></h2>
+        <a th:href="@{'/'}" >HOME PAGE</a>
+        <a th:href="@{'/admin'}" sec:authorize="hasAnyRole('ROLE_ADMIN')">ADMIN PAGE</a>
+        <a th:href="@{'/editor'}" sec:authorize="hasAnyRole('ROLE_ADMIN' , 'ROLE_EDITOR')">EDITOR PAGE</a>
+        <form th:action="@{'/exit'}" method="post">
+            <button>SIGN OUT</button>
+        </form>
+    </div>
+</body>
+</html>
